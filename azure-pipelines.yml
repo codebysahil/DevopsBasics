@@ -37,8 +37,8 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy3'
   inputs:
-    SourceFolder: '/home/vsts/work/1/s/webapp/target/'
-    Contents: '*'
+    SourceFolder: '$(agent.builddirectory)'
+    Contents: '**/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)/target'
           
 - task: CopyFiles@2
