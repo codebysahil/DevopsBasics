@@ -25,9 +25,9 @@ steps:
   inputs:
     SourceFolder: '/home/vsts/work/1/s/webapp/target'
     Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    TargetFolder: '/home/vsts/work/1/a'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '/home/vsts/work/1/a'
     ArtifactName: 'drop'
     publishLocation: 'Container'
