@@ -23,8 +23,27 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/.war'
+    Contents: '*'
     TargetFolder: '$(build.artifactstagingdirectory)'
+
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/webapp/target'
+    Contents: '*'
+    TargetFolder: '$(build.artifactstagingdirectory)/target'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/webapp/target/'
+    Contents: '*'
+    TargetFolder: '$(build.artifactstagingdirectory)/target'
+          
+- task: CopyFiles@2
+  displayName: 'Copy WebApp files to artifacts'
+  inputs:
+    SourceFolder: webapp
+    TargetFolder: '$(build.artifactstagingdirectory)/Release/webapp'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
