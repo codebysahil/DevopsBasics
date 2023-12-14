@@ -22,30 +22,12 @@ steps:
     goals: 'package'
 
 - task: CopyFiles@2
-  displayName: 'Copy1'
-  inputs:
-    Contents: '*'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-
-
-- task: CopyFiles@2
-  displayName: 'Copy2'
-  inputs:
-    SourceFolder: '/home/vsts/work/1/s/webapp/target'
-    Contents: '*'
-    TargetFolder: '$(build.artifactstagingdirectory)/target'
-- task: CopyFiles@2
-  displayName: 'Copy3'
+  displayName: 'Copy Task'
   inputs:
     SourceFolder: '$(agent.builddirectory)'
     Contents: '**/*.war'
     TargetFolder: '$(build.artifactstagingdirectory)/target'
           
-- task: CopyFiles@2
-  displayName: 'Copy WebApp files to artifacts'
-  inputs:
-    SourceFolder: webapp
-    TargetFolder: '$(build.artifactstagingdirectory)/Release/webapp'
 
 - task: PublishBuildArtifacts@1
   inputs:
